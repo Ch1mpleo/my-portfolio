@@ -31,15 +31,16 @@ interface LanyardProps {
 export default function Lanyard({
     position = [0, 0, 30],
     gravity = [0, -40, 0],
-    fov = 20,
-    transparent = true
+    fov = 20
 }: LanyardProps) {
     return (
-        <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center">
+        <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
             <Canvas
                 camera={{ position, fov }}
-                gl={{ alpha: transparent }}
-                onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
+                gl={{ alpha: true }}
+                onCreated={({ gl }) => {
+                    gl.setClearColor(new THREE.Color(0x000000), 0);
+                }}
             >
                 <ambientLight intensity={Math.PI} />
                 <Suspense fallback={null}>

@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         terminal: {
-          bg: '#0a0a0a',
+          bg: '#000000',
           text: '#00ff00',
-          prompt: '#00ff00',
+          prompt: '#3b82f6',
           secondary: '#00cc00',
         },
       },
