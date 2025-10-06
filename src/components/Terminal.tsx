@@ -56,20 +56,29 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
       case 'projects':
         return `🚀 Featured Projects:
 
-1. Payment Portal Dashboard
-   - Full-stack payment processing system
-   - Technologies: React, Node.js, AWS
-   - Role: Lead Developer
+1. Movie Theater Ticket Booking System
+  • Github: <LINK>mailto:https://github.com/orgs/MovieTheaterFAA/repositories|https://github.com/orgs/MovieTheaterFAA/repositories</LINK>
+  • Tech stack: ASP.NET Core, React, TypeScript, Docker, JWT, MinIO, Resend, Stripe payment, AI Integration, deployed via VPS and Vercel
+  • Features:
+  
+2. Arwoh: E-commerce Photography Marketplace
+   - Github: <LINK>mailto:https://github.com/ArWoh-WebApp/ArWoh.FE|https://github.com/ArWoh-WebApp/ArWoh.FE</LINK>
+   • The platform allows photographers to upload their work with custom pricing, while buyers can browse, purchase, and download digital 
+copies or order physical prints for delivery. The platform supports both digital downloads and physical print orders with shipping 
+capabilities, making it a complete solution for photography e-commerce.
+   • My main responsible is delivering a clean and responsive user interface with UI/UX for website.
+   • Handled deployment of the frontend to Vercel, ensuring smooth integration with backend APIs, manage user sessions securely using JWT  
+and interact with protected API routes and payment gateways.
 
-2. Data Visualization Tools
-   - Interactive data dashboards
-   - Technologies: React, D3.js, TypeScript
-   - Focus: Real-time data visualization
-
-3. AI Integration Platform
-   - AI-powered application features
-   - Technologies: Python, TensorFlow, React
-   - Focus: Machine learning integration
+3. VaccinaCare: Childhood Vaccination Management System
+   - Github: <LINK>mailto:https://github.com/VaccinaCare/VaccinaCare.FE|https://github.com/VaccinaCare/VaccinaCare.FE</LINK>
+   • VaccinaCare is a comprehensive medical platform designed to manage childhood vaccinations efficiently. The system helps parents track 
+their children's immunization schedules, book appointments. For healthcare providers, it offers tools to manage appointments, record 
+vaccinations, handle payments, and implement cancellation policies.
+   • My main responsible is designed and implemented the database schema to support core features, also delivering a clean user interface 
+with UI/UX for website.
+   • Handled deployment of the frontend to Vercel, ensuring smooth integration with backend APIs, manage user sessions securely using 
+JWT  and interact with protected API routes and payment gateways.
 
 Type 'contact' to discuss projects or collaborations!`;
 
@@ -96,7 +105,7 @@ AI & ML:
   - AI Integration
 
 Tools:
-  - Git, VS Code
+  - Git, VS Code, Visual Studio, 
   - Agile/Scrum`;
 
       case 'experience':
@@ -121,25 +130,7 @@ Relevant Coursework:
 - Web Development
 
 Achievements:
-- Winner of the Ayute Africa Challenge with the Afyamavuno (Agrika) project
-- Active in tech communities (GDG, Microsoft Dev Community Africa)`;
-
-      case 'certifications':
-        return `📜 Certifications & Achievements:
-
-🏆 Ayute Africa Challenge Winner
-   Project: Afyamavuno (Agrika)
-   
-📜 Professional Certifications:
-- [Add your certifications here]
-- Cloud certifications
-- Development certifications
-
-🎤 Speaking Engagements:
-- Tech conferences
-- Developer community events
-- GDG sessions
-- Microsoft Dev Community Africa`;
+- Top 2 of the RPG Game Project (VNU University of Engineering and Technology)`;
 
       case 'contact':
         return `📬 Get in Touch:
@@ -246,7 +237,7 @@ Type 'help' to see available commands.`;
       {/* Command Menu Bar */}
       <div className="w-full px-8 py-3 border-b border-terminal-text/20 bg-black">
         <div className="text-terminal-text text-sm tracking-wider overflow-x-auto whitespace-nowrap">
-          help  |  about  |  projects  |  skills  |  experience  |  contact  |  education  |  certifications  |  sudo  |  clear
+          help  |  about  |  projects  |  skills  |  experience  |  contact  |  education  |  sudo  |  clear
         </div>
       </div>
 
