@@ -37,7 +37,7 @@ const Terminal: React.FC = () => {
       case 'welcome':
         return `Hi, I'm Ch1mpleo - Do Huu Viet Anh, a Software Engineer.
 
-Welcome to my Interactive 'AI powered' portfolio terminal!
+Welcome to my Interactive portfolio terminal!
 Type 'help' to see available commands.`;
 
       case 'about':
