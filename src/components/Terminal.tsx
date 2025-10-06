@@ -36,19 +36,15 @@ Welcome to my Interactive 'AI powered' portfolio terminal!
 Type 'help' to see available commands.`;
 
       case 'about':
-        return `👋 Hello, I'm Ch1mpleo (Do Huu Viet Anh)!
+        return `😭 Hello, I'm Ch1mpleo (Do Huu Viet Anh)!
 
 I'm a Software Engineer with expertise in full-stack development, AI integration, and cloud infrastructure.
 
 Background:
-- Currently a Software Engineering Intern at Microsoft working with the Windows Team
-- Previously led the development of payment portals and dashboards at FarCas Consult (FCL)
-- Previously worked at Microsoft Garage, Digitalfarmer, and QuizardHQ
+- Currently a Software Engineering Intern at FPT Software
 - Focus on building scalable web applications and data visualization tools
-- Skilled in Next.js, React, AWS, Azure, and AI integration
-- Winner of the Ayute Africa Challenge with the Afyamavuno (Agrika) project
 
-When not coding, I enjoy speaking at tech conferences and contributing to developer communities like GDG and Microsoft Dev Community Africa.
+When not coding, I enjoy playing games, espcially peak games.
 
 Feel free to explore more using the 'projects', 'skills', or 'contact' commands!`;
 
@@ -76,67 +72,48 @@ Type 'contact' to discuss projects or collaborations!`;
         return `💻 Technical Skills:
 
 Frontend:
-  - React, TypeScript, Next.js
+  - React, TypeScript
   - TailwindCSS, Three.js
   - State Management (Redux Toolkit)
+  - UI/UX Design
 
 Backend:
-  - Node.js, Python
-  - RESTful APIs, GraphQL
-  - Database: PostgreSQL, MongoDB
+  - .NET ASP.NET Core
+  - Clean Architecture, SOLID Principles, DDD Patterns
+  - RESTful APIs
+  - Database: PostgreSQL, SQL Server
 
 Cloud & DevOps:
-  - AWS, Azure
+  - VPS Hosting
   - Docker, CI/CD
-  - Cloud Infrastructure
 
 AI & ML:
-  - TensorFlow, PyTorch
-  - Natural Language Processing
   - AI Integration
 
 Tools:
   - Git, VS Code
-  - Agile/Scrum
-  - Testing frameworks`;
+  - Agile/Scrum`;
 
       case 'experience':
         return `💼 Work Experience:
 
 Software Engineering Intern
-Company: [Current Company]
-Duration: [Start Date] - Present
-- Working with Windows Team
-- Developing scalable applications
-- Focus on full-stack development
-
-Lead Developer
-Company: FarCas Consult (FCL)
-Duration: [Date Range]
-- Led development of payment portals and dashboards
-- Implemented secure payment processing
-- Managed development team
-
-Software Engineer
-Company: [Previous Companies]
-- Microsoft Garage
-- DigitalFarmer
-- QuizardHQ
-- Built web applications and data visualization tools`;
+Company: FPT Software
+Duration: 1/2025 - 5/2025
+- Working on a fullstack project of Movie ticket booking system
+- Developing scalable applications`;
 
       case 'education':
         return `🎓 Education:
 
-[Your Degree]
-[Your University]
-[Year Range]
+Bachelor of Science in Software Engineering
+FPT University
+2022 - 2026
 
 Relevant Coursework:
 - Data Structures & Algorithms
 - Software Engineering
 - Web Development
-- Machine Learning
-- Cloud Computing
 
 Achievements:
 - Winner of the Ayute Africa Challenge with the Afyamavuno (Agrika) project
@@ -159,40 +136,17 @@ Achievements:
 - GDG sessions
 - Microsoft Dev Community Africa`;
 
-      case 'leadership':
-        return `👨‍💼 Leadership & Community:
-
-Community Involvement:
-- Active member of GDG (Google Developer Groups)
-- Contributor to Microsoft Dev Community Africa
-- Tech conference speaker
-- Mentor to junior developers
-
-Leadership Experience:
-- Led development teams
-- Project management
-- Technical architecture decisions
-- Code review and mentorship
-
-Public Speaking:
-- Tech conferences
-- Developer meetups
-- Technical workshops`;
-
       case 'contact':
         return `📬 Get in Touch:
 
-Email: [your.email@example.com]
-LinkedIn: [your-linkedin-profile]
-GitHub: [your-github-username]
-Twitter: @ch1mpleo
-Website: [your-website.com]
+Email: vietanh051203@gmail.com
+GitHub: https://github.com/ch1mpleo
+Website: https://ch1mpleo.github.io/
 
 I'm always open to:
 - Collaboration opportunities
 - Open source contributions
 - Technical discussions
-- Speaking engagements
 
 Feel free to reach out!`;
 
