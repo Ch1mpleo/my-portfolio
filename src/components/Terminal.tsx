@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, KeyboardEvent } from 'react';
+import React, { useState, useRef, useEffect, KeyboardEvent } from 'react';
 
 interface CommandOutput {
   command: string;
@@ -10,10 +10,15 @@ const Terminal: React.FC = () => {
   const [currentInput, setCurrentInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
+  const hasShownWelcome = useRef(false);
 
   useEffect(() => {
-    handleCommand('welcome');
+    if (!hasShownWelcome.current) {
+      hasShownWelcome.current = true;
+      handleCommand('welcome');
+    }
     inputRef.current?.focus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -139,9 +144,10 @@ Achievements:
       case 'contact':
         return `📬 Get in Touch:
 
-Email: vietanh051203@gmail.com
-GitHub: https://github.com/ch1mpleo
-Website: https://ch1mpleo.github.io/
+Email: <LINK>mailto:vietanh051203@gmail.com|vietanh051203@gmail.com</LINK>
+LinkedIn: <LINK>https://www.linkedin.com/in/vietanhdo/|linkedin.com/in/vietanhdo</LINK>
+GitHub: <LINK>https://github.com/ch1mpleo|github.com/ch1mpleo</LINK>
+Website: <LINK>https://ch1mpleo.github.io/|ch1mpleo.github.io</LINK>
 
 I'm always open to:
 - Collaboration opportunities
@@ -191,13 +197,54 @@ Type 'help' to see available commands.`;
     inputRef.current?.focus();
   };
 
+  // Function to render output with clickable links
+  const renderOutput = (output: string) => {
+    const linkRegex = /<LINK>(.*?)\|(.*?)<\/LINK>/g;
+    const parts: (string | React.ReactElement)[] = [];
+    let lastIndex = 0;
+    let match;
+    let keyCounter = 0;
+
+    while ((match = linkRegex.exec(output)) !== null) {
+      // Add text before the link
+      if (match.index > lastIndex) {
+        parts.push(output.substring(lastIndex, match.index));
+      }
+
+      // Add the clickable link
+      const url = match[1];
+      const displayText = match[2];
+      parts.push(
+        <a
+          key={`link-${keyCounter++}`}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 hover:text-blue-300 underline cursor-pointer"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {displayText}
+        </a>
+      );
+
+      lastIndex = linkRegex.lastIndex;
+    }
+
+    // Add remaining text after the last link
+    if (lastIndex < output.length) {
+      parts.push(output.substring(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : output;
+  };
+
   return (
     <div
       className="w-full h-full bg-black text-terminal-text font-mono overflow-hidden flex flex-col"
       onClick={handleTerminalClick}
     >
       {/* Command Menu Bar */}
-      <div className="w-full px-6 py-3 border-b border-terminal-text/20 bg-black">
+      <div className="w-full px-8 py-3 border-b border-terminal-text/20 bg-black">
         <div className="text-terminal-text text-sm tracking-wider overflow-x-auto whitespace-nowrap">
           help  |  about  |  projects  |  skills  |  experience  |  contact  |  education  |  certifications  |  sudo  |  clear
         </div>
@@ -205,20 +252,20 @@ Type 'help' to see available commands.`;
 
       <div
         ref={terminalRef}
-        className="flex-1 overflow-y-auto p-4 space-y-4"
+        className="flex-1 overflow-y-auto px-8 py-4 space-y-4"
       >
         {history.map((entry, index) => (
           <div key={index} className="space-y-3">
             {entry.command && (
               <div className="flex items-center space-x-2">
                 <span className="text-blue-400">ch1mpleo@portfolio:~$ </span>
-                <span className="text-terminal-text">{entry.command}</span>
+                <span className="text-terminal-text"> {entry.command}</span>
               </div>
             )}
             {entry.output && (
-              <pre className="whitespace-pre-wrap text-white pl-0 font-mono leading-loose mb-4">
-                {entry.output}
-              </pre>
+              <div className="whitespace-pre-wrap text-white pl-0 font-mono leading-loose mb-4">
+                {renderOutput(entry.output)}
+              </div>
             )}
           </div>
         ))}
