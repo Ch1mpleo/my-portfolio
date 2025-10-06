@@ -57,28 +57,16 @@ Feel free to explore more using the 'projects', 'skills', or 'contact' commands!
         return `🚀 Featured Projects:
 
 1. Movie Theater Ticket Booking System
-  • Github: <LINK>mailto:https://github.com/orgs/MovieTheaterFAA/repositories|https://github.com/orgs/MovieTheaterFAA/repositories</LINK>
-  • Tech stack: ASP.NET Core, React, TypeScript, Docker, JWT, MinIO, Resend, Stripe payment, AI Integration, deployed via VPS and Vercel
-  • Features:
+   - Github: <LINK>mailto:https://github.com/orgs/MovieTheaterFAA/repositories|https://github.com/orgs/MovieTheaterFAA/repositories</LINK>
+   -  Tech stack: ASP.NET Core, React, TypeScript, Docker, JWT, MinIO, Resend, Stripe payment, AI Integration, deployed via VPS and Vercel
   
 2. Arwoh: E-commerce Photography Marketplace
-   - Github: <LINK>mailto:https://github.com/ArWoh-WebApp/ArWoh.FE|https://github.com/ArWoh-WebApp/ArWoh.FE</LINK>
-   • The platform allows photographers to upload their work with custom pricing, while buyers can browse, purchase, and download digital 
-copies or order physical prints for delivery. The platform supports both digital downloads and physical print orders with shipping 
-capabilities, making it a complete solution for photography e-commerce.
-   • My main responsible is delivering a clean and responsive user interface with UI/UX for website.
-   • Handled deployment of the frontend to Vercel, ensuring smooth integration with backend APIs, manage user sessions securely using JWT  
-and interact with protected API routes and payment gateways.
+   - Github: <LINK>mailto:https://github.com/ArWoh-WebApp/ArWoh.FE|https://github.com/ArWoh-WebApp/ArWoh.FE</LINK>.
+   - Tech stack: React, TypeScript, TailwindCSS, deployed via Vercel
 
 3. VaccinaCare: Childhood Vaccination Management System
    - Github: <LINK>mailto:https://github.com/VaccinaCare/VaccinaCare.FE|https://github.com/VaccinaCare/VaccinaCare.FE</LINK>
-   • VaccinaCare is a comprehensive medical platform designed to manage childhood vaccinations efficiently. The system helps parents track 
-their children's immunization schedules, book appointments. For healthcare providers, it offers tools to manage appointments, record 
-vaccinations, handle payments, and implement cancellation policies.
-   • My main responsible is designed and implemented the database schema to support core features, also delivering a clean user interface 
-with UI/UX for website.
-   • Handled deployment of the frontend to Vercel, ensuring smooth integration with backend APIs, manage user sessions securely using 
-JWT  and interact with protected API routes and payment gateways.
+   - Tech stack: React, TypeScript, TailwindCSS, deployed via Vercel
 
 Type 'contact' to discuss projects or collaborations!`;
 
