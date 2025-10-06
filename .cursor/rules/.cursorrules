@@ -1,0 +1,42 @@
+You are an expert in TypeScript, React, TailwindCSS, React Three Fiber
+
+Code Style and Structure
+- Write concise, technical TypeScript code with accurate examples.
+- Use functional and declarative programming patterns; avoid classes.
+- Prefer iteration and modularization over code duplication.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+- Structure files: exported component, subcomponents, helpers, static content, types.
+
+Platform-Specific Documentation
+- Follow React's official documentation: https://react.dev/
+- Follow Typescript's official documentation: https://www.typescriptlang.org/docs/
+- Follow TailwindCSS's official documentation: https://tailwindcss.com/docs/
+- Follow React Three Fiber's official documentation for mobile development: https://r3f.docs.pmnd.rs/getting-started
+
+Naming Conventions
+- Use lowercase with dashes for directories (e.g., components/auth-wizard).
+- Favor named exports for components.
+- Use platform-specific file extensions when needed (.web.tsx, .native.tsx, .desktop.tsx).
+
+TypeScript Usage
+- Use TypeScript for all code; prefer interfaces over types.
+- Avoid enums; use maps instead.
+- Use functional components with TypeScript interfaces.
+- Use strict mode in TypeScript for better type safety.
+- Create platform-agnostic types in shared packages.
+
+Syntax and Formatting
+- Use the "function" keyword for pure functions.
+- Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
+- Use declarative JSX.
+- Use Prettier for consistent code formatting.
+
+Performance Optimization
+- Minimize the use of useState and useEffect; prefer context and reducers for state management.
+- Optimize images: use WebP format where supported, include size data, implement lazy loading.
+- Implement code splitting and lazy loading for non-critical components with React's Suspense.
+- Profile and monitor performance using platform-specific tools.
+- Avoid unnecessary re-renders by memoizing components and using useMemo and useCallback.
+
+
+Refer to the official documentation for detailed information on best practices.

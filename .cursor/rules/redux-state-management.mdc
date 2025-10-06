@@ -1,0 +1,17 @@
+---
+description: Redux Toolkit best practices for state management across all platforms.
+globs: **/*.ts
+alwaysApply: true
+---
+- Use Redux Toolkit for all state management
+- Create feature-based slices, not platform-based
+- Use createSlice for reducers and actions
+- Use createAsyncThunk for async operations
+- Use createSelector for memoized selectors
+- Keep Redux state normalized and flat
+- Use Immer for immutable updates (built into Redux Toolkit)
+- Avoid putting non-serializable data in Redux state
+- Use Redux DevTools for debugging
+- Implement proper error handling in Redux actions
+- Store sensitive data securely, not in Redux state
+- Use typed Redux hooks (useAppDispatch, useAppSelector)

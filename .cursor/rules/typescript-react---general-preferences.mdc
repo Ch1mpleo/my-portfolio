@@ -1,0 +1,9 @@
+---
+description: Sets general preferences for TypeScript React development, such as preferring functional components.
+alwaysApply: false
+---
+- Prefer functional components
+- Use Redux Toolkit for state management
+- Use platform-specific implementations only when necessary
+- Prefer shared packages over platform-specific code
+- Use TypeScript strict mode across all platforms

@@ -1,0 +1,16 @@
+---
+description: Enforces TypeScript React best practices related to using React.FC, hooks, interfaces, and optimization techniques.
+globs: src/**/*.* 
+alwaysApply: true
+---
+- Use React.FC for functional components with props
+- Utilize Redux for state management instead of useState for global state
+- Use useState only for local component state
+- Implement proper TypeScript interfaces for props and state
+- Use React.memo for performance optimization when needed
+- Implement custom hooks for reusable logic
+- Utilize TypeScript's strict mode
+- Use Redux Toolkit's createSlice for reducers and actions
+- Use createAsyncThunk for async operations
+- Use createSelector for memoized selectors
+- Implement proper Redux TypeScript types
