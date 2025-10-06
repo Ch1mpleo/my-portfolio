@@ -136,9 +136,8 @@ I'm always open to:
 Feel free to reach out!`;
 
       case 'sudo':
-        return `
-                Nice try twin 🥀💔 ! But you'll need more than sudo to hack this terminal.
-                Fun fact: This portfolio is built with React, TypeScript, and Three.js!`;
+        return `Nice try twin 🥀💔 ! But you'll need more than sudo to hack this terminal.
+Fun fact: This portfolio is built with React, TypeScript, and the landyard on the left side is built with Three.js!`;
 
       case 'clear':
         return '__CLEAR__';
