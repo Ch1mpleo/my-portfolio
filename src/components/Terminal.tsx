@@ -27,7 +27,7 @@ const Terminal: React.FC = () => {
 
     switch (command) {
       case 'help':
-        return `help | about | projects | skills | experience | contact | education | certifications | leadership | sudo | clear`;
+        return `help | about | projects | skills | experience | contact | education | certifications | sudo | clear`;
 
       case 'welcome':
         return `Hi, I'm Ch1mpleo - Do Huu Viet Anh, a Software Engineer.
@@ -197,9 +197,9 @@ Type 'help' to see available commands.`;
       onClick={handleTerminalClick}
     >
       {/* Command Menu Bar */}
-      <div className="w-full px-4 py-3 border-b border-terminal-text/20 bg-black">
-        <div className="text-terminal-text text-sm overflow-x-auto whitespace-nowrap">
-          help | about | projects | skills | experience | contact | education | certifications | leadership | sudo | clear
+      <div className="w-full px-6 py-3 border-b border-terminal-text/20 bg-black">
+        <div className="text-terminal-text text-sm tracking-wider overflow-x-auto whitespace-nowrap">
+          help  |  about  |  projects  |  skills  |  experience  |  contact  |  education  |  certifications  |  sudo  |  clear
         </div>
       </div>
 
@@ -211,7 +211,7 @@ Type 'help' to see available commands.`;
           <div key={index} className="space-y-3">
             {entry.command && (
               <div className="flex items-center space-x-2">
-                <span className="text-blue-400">ch1mpleo@portfolio:~$</span>
+                <span className="text-blue-400">ch1mpleo@portfolio:~$ </span>
                 <span className="text-terminal-text">{entry.command}</span>
               </div>
             )}
@@ -224,7 +224,7 @@ Type 'help' to see available commands.`;
         ))}
 
         <div className="flex items-center space-x-2 mt-4">
-          <span className="text-blue-400">ch1mpleo@portfolio:~$</span>
+          <span className="text-blue-400">ch1mpleo@portfolio:~$ </span>
           <input
             ref={inputRef}
             type="text"

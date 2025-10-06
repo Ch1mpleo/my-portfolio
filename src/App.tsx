@@ -7,12 +7,12 @@ function App() {
   return (
     <div className="w-full h-screen bg-black overflow-hidden flex flex-col">
       {/* Header */}
-      <header className="w-full bg-black border-b border-terminal-text/20 p-4 flex-shrink-0">
+      <header className="w-full bg-black border-b-2 border-terminal-text/30 px-6 py-5 flex-shrink-0">
         <div className="text-left">
-          <h1 className="text-xl md:text-2xl font-bold text-terminal-text tracking-wide">
+          <h1 className="text-2xl md:text-3xl font-bold text-terminal-text tracking-wider mb-1">
             Ch1mpleo
           </h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-base md:text-lg text-gray-400 tracking-wide">
             Do Huu Viet Anh - Software Engineer
           </p>
         </div>
@@ -40,8 +40,8 @@ function App() {
       </div>
 
       {/* Footer with real-time clock */}
-      <footer className="w-full bg-black border-t border-terminal-text/20 px-4 py-2 flex-shrink-0">
-        <div className="text-terminal-text text-xs text-right">
+      <footer className="w-full bg-black border-t-2 border-terminal-text/30 px-6 py-4 flex-shrink-0">
+        <div className="text-terminal-text text-sm md:text-base text-right font-medium tracking-wider">
           <Clock />
         </div>
       </footer>
