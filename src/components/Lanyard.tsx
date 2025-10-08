@@ -15,7 +15,7 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 
-// replace with your own imports, see the usage snippet for details
+// Import asset
 import cardGLB from '../assets/lanyard/card.glb';
 import lanyard from '../assets/lanyard/lanyard.png';
 
@@ -33,6 +33,19 @@ export default function Lanyard({
     gravity = [0, -40, 0],
     fov = 20
 }: LanyardProps) {
+    const [dragCount, setDragCount] = useState(0);
+    const [showCelebration, setShowCelebration] = useState(false);
+    
+    const handleDragCount = (count: number) => {
+        console.log(`Main component: Drag count updated to ${count}`);
+        setDragCount(count);
+        setShowCelebration(true);
+        
+        // Hide celebration after animation
+        setTimeout(() => {
+            setShowCelebration(false);
+        }, 1000);
+    };
     return (
         <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
             <Canvas
@@ -45,7 +58,7 @@ export default function Lanyard({
                 <ambientLight intensity={Math.PI} />
                 <Suspense fallback={null}>
                     <Physics gravity={gravity} timeStep={1 / 60}>
-                        <Band />
+                        <Band onDragCount={handleDragCount} />
                     </Physics>
                     <Environment blur={0.75}>
                         <Lightformer
@@ -79,6 +92,58 @@ export default function Lanyard({
                     </Environment>
                 </Suspense>
             </Canvas>
+            {/* Drag Counter Display */}
+            <div className={`absolute top-4 right-4 text-terminal-text font-mono text-lg transition-all duration-300 ${
+                showCelebration ? 'scale-110 text-terminal-secondary' : ''
+            }`}>
+                <div className="text-xs text-terminal-text/60 tracking-wider">DRAGS</div>
+                <div className="text-2xl font-bold tracking-wider">{dragCount}</div>
+            </div>
+            
+            {/* Celebration Effect */}
+            {showCelebration && (
+                <>
+                    {/* Main +1 Text */}
+                    <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+                        <div className="text-6xl animate-bounce text-terminal-text font-mono font-bold tracking-wider drop-shadow-lg">
+                            +1
+                        </div>
+                    </div>
+                    
+                    {/* Particle Effects */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        {[...Array(8)].map((_, i) => (
+                            <div
+                                key={i}
+                                className="absolute w-2 h-2 bg-terminal-text rounded-full animate-ping"
+                                style={{
+                                    left: `${50 + Math.cos(i * 45 * Math.PI / 180) * 100}px`,
+                                    top: `${50 + Math.sin(i * 45 * Math.PI / 180) * 100}px`,
+                                    animationDelay: `${i * 0.1}s`,
+                                    animationDuration: '1s'
+                                }}
+                            />
+                        ))}
+                    </div>
+                    
+                    {/* Confetti Effect */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                        {[...Array(12)].map((_, i) => (
+                            <div
+                                key={`confetti-${i}`}
+                                className="absolute w-3 h-3 animate-bounce"
+                                style={{
+                                    backgroundColor: ['#00ff00', '#00cc00', '#00aa00', '#008800', '#006600', '#004400'][i % 6],
+                                    left: `${Math.random() * 100}%`,
+                                    top: `${Math.random() * 100}%`,
+                                    animationDelay: `${i * 0.05}s`,
+                                    animationDuration: `${0.5 + Math.random() * 0.5}s`
+                                }}
+                            />
+                        ))}
+                    </div>
+                </>
+            )}
         </div>
     );
 }
@@ -86,9 +151,10 @@ export default function Lanyard({
 interface BandProps {
     maxSpeed?: number;
     minSpeed?: number;
+    onDragCount?: (count: number) => void;
 }
 
-function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
+function Band({ maxSpeed = 50, minSpeed = 0, onDragCount }: BandProps) {
     // Using "any" for refs since the exact types depend on Rapier's internals
     const band = useRef<any>(null);
     const fixed = useRef<any>(null);
@@ -118,6 +184,9 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
     );
     const [dragged, drag] = useState<false | THREE.Vector3>(false);
     const [hovered, hover] = useState(false);
+    const [dragCount, setDragCount] = useState(0);
+    const [hasStartedDrag, setHasStartedDrag] = useState(false);
+    const [isCounting, setIsCounting] = useState(false);
 
     const [isSmall, setIsSmall] = useState<boolean>(() => {
         if (typeof window !== 'undefined') {
@@ -163,7 +232,27 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
                 y: vec.y - dragged.y,
                 z: vec.z - dragged.z
             });
+            // Count each drag start with delay
+            if (!hasStartedDrag && !isCounting) {
+                console.log('Started dragging lanyard');
+                setHasStartedDrag(true);
+                setIsCounting(true);
+                
+                // Delay the count by 500ms
+                setTimeout(() => {
+                    const newCount = dragCount + 1;
+                    setDragCount(newCount);
+                    onDragCount?.(newCount);
+                    console.log(`Drag count updated to: ${newCount}`);
+                }, 500);
+            }
+        } else if (hasStartedDrag && !dragged) {
+            // User just released the card, reset the drag flag
+            console.log('Released lanyard');
+            setHasStartedDrag(false);
+            setIsCounting(false);
         }
+        
         if (fixed.current) {
             [j1, j2].forEach(ref => {
                 if (!ref.current.lerped) ref.current.lerped = new THREE.Vector3().copy(ref.current.translation());
@@ -214,10 +303,12 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
                         onPointerOut={() => hover(false)}
                         onPointerUp={(e: any) => {
                             e.target.releasePointerCapture(e.pointerId);
+                            console.log('Pointer up on lanyard');
                             drag(false);
                         }}
                         onPointerDown={(e: any) => {
                             e.target.setPointerCapture(e.pointerId);
+                            console.log('Pointer down on lanyard');
                             drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
                         }}
                     >
